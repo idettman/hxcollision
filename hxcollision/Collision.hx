@@ -352,7 +352,7 @@
             return collisionData;
         }
         
-        private static function checkCircles(circle1:Circle, circle2:Circle):CollisionData {
+        public static function checkCircles(circle1:Circle, circle2:Circle):CollisionData {
             var totalRadius : Float = circle1.transformedRadius + circle2.transformedRadius; //add both radii together to get the colliding distance
             var distanceSquared : Float = (circle1.x - circle2.x) * (circle1.x - circle2.x) + (circle1.y - circle2.y) * (circle1.y - circle2.y); //find the distance between the two circles using Pythagorean theorem. No square roots for optimization
             
@@ -368,8 +368,8 @@
             }
             return null; //no collision, return null
         }
-        
-        private static function checkPolygons(polygon1:Polygon, polygon2:Polygon):CollisionData {
+
+		public static function checkPolygons(polygon1:Polygon, polygon2:Polygon):CollisionData {
             var test1 : Float; // numbers to use to test for overlap
             var test2 : Float;
             var testNum : Float; // number to test if its the new max/min
@@ -452,7 +452,7 @@
             return collisionData;
         }
         
-        private static function findNormalAxis(vertices:Array<Vector2D>, index:Int):Vector2D {
+        public static function findNormalAxis(vertices:Array<Vector2D>, index:Int):Vector2D {
             var vector1:Vector2D = vertices[index];
             var vector2:Vector2D = (index >= vertices.length - 1) ? vertices[0] : vertices[index + 1]; //make sure you get a real vertex, not one that is outside the length of the vector.
             
